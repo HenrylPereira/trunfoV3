@@ -1,0 +1,50 @@
+.background {
+  background-image: url('https://imgur.com/TqtKf5j.png');
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top-side{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 20%;
+  background-color: rgba(0, 0, 0, 0.74);
+}
+
+.top-cards-back{
+  height: 70%;
+}
+
+.player-side{
+  position: relative;
+  top: 40%;
+  width: 100vw;
+  height: 40%;
+  background-color: rgba(0, 0, 0, 0.74);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.play-btn {
+  position: relative;
+  left: 80%;
+  bottom: 30%;
+  background: linear-gradient(90deg, rgba(98, 0, 195, 1) 0%, rgba(69, 0, 138, 0.63) 100%);
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+  height: 35%;
+  width: 15%;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.play-btn:hover {
+  background: linear-gradient(90deg, rgb(152, 81, 218) 0%, rgba(141, 90, 192, 0.63) 100%);
+}

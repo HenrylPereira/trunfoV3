@@ -1,0 +1,14 @@
+<div class="card">
+  <img class="img" src="https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg">
+  <div class="infos">
+    <div class="titulo"><h1>{{carta.titulo}}</h1></div>
+    <div
+      *ngFor="let propriedade of carta.atributos; let i = index"
+      class="atributo"
+      (click)="selecionarAtributo(i)"
+      [class.clicado]="atributoSelecionado === i">
+      <h3>{{propriedade.titulo}}</h3>
+      <h3>{{propriedade.valor}}</h3>
+    </div>
+  </div>
+</div>

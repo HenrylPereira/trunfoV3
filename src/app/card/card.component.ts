@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { cardInterface } from './interfaces/card-interface';
 
 @Component({
@@ -7,7 +7,6 @@ import { cardInterface } from './interfaces/card-interface';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-
   public loading = true;
   public atributoSelecionado!: number;
 
@@ -23,8 +22,8 @@ export class CardComponent {
       { titulo: 'Magia', valor: 50 },
       { titulo: 'Velocidade', valor: 3 },
     ],
-    cor: '#fff',
-    imageUrl: ''
+    cor: '',
+    imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
   };
 
   selecionarAtributo(index: number): void {

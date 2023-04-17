@@ -3,6 +3,9 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .top-side{
@@ -14,37 +17,89 @@
 }
 
 .top-cards-back{
-  height: 70%;
+  position: absolute;
+  left: 2%;
+  height: 20%;
+  margin-right: 2%;
+}
+
+.player-cards-back{
+  position: absolute;
+  height: 20%;
+  margin-left: 2%;
 }
 
 .player-side{
-  position: relative;
-  top: 40%;
+  display: flex;
+  justify-content: center;
   width: 100vw;
-  height: 40%;
+  height: 20%;
   background-color: rgba(0, 0, 0, 0.74);
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-}
-
 .play-btn {
-  position: relative;
-  left: 80%;
-  bottom: 30%;
-  background: linear-gradient(90deg, rgba(98, 0, 195, 1) 0%, rgba(69, 0, 138, 0.63) 100%);
+  position: absolute;
+  left: 20%;
+  background: linear-gradient(90deg, rgba(98, 0, 195, 1) 0%, rgb(69, 0, 138) 100%);
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
-  height: 35%;
+  height: 15%;
   width: 15%;
   border: none;
   border-radius: 10px;
   color: white;
+  font-size: larger;
+  margin-top: 1%;
 }
 
 .play-btn:hover {
   background: linear-gradient(90deg, rgb(152, 81, 218) 0%, rgba(141, 90, 192, 0.63) 100%);
 }
+
+.player-card {
+  position: absolute;
+  left: 25%;
+  top: 22%;
+}
+
+.bot-card {
+  position: relative;
+  animation-name: card-animation-bot;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.center-table {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 60vh;
+  justify-content: space-evenly;
+  align-items: center;
+  animation-name: background-animation;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes card-animation-bot {
+  from {
+    bottom: 100%;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes background-animation {
+  0% {
+    background-color: rgba(255, 189, 6, 0.616);
+  }
+  50% {
+    background-color: rgba(253, 244, 113, 0.589);
+  }
+  100% {
+    background-color: rgba(255, 189, 6, 0.616);
+  }
+}
+
+

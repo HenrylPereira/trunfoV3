@@ -1,0 +1,19 @@
+<body >
+  <div class="container">
+    <input type="radio" name="slider" id="item-1" checked>
+    <input type="radio" name="slider" id="item-2">
+    <input type="radio" name="slider" id="item-3">
+    <div class="cards">
+      <label
+        *ngFor="let card of cards;"
+        class="card" for="item-{{card.id}}"
+        id="song-{{card.id}}"
+        (click)="changeTheme(card.backgroundImage)">
+          <img [src]="card.cardImage" alt="song">
+      </label>
+    </div>
+    <button class="btn-selecionar" (click)="selecionar()">Selecionar</button>
+  </div>
+  <div class="side-slider" [style.background-image]="backgroundImage">
+  </div>
+</body>

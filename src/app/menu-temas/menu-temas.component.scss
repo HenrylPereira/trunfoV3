@@ -20,7 +20,6 @@ body {
   padding: 30px 10px;
   font-family: 'DM Sans', sans-serif;
   transition: background .4s ease-in;
-  background-color: #e2e2e2;
 
   &.blue {
     background-color: #428aa6;
@@ -98,12 +97,12 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
-  transition: opacity 1s ease-in-out;
+  transition: background .4s ease-in;
 }
 
 .btn-selecionar{
   height: 20%;
-  width: 40%;
+  width: 37%;
   border: none;
   background-color: rgba(0, 0, 0, 0.51);
   color: white;

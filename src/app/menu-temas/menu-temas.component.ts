@@ -10,6 +10,7 @@ export class MenuTemasComponent implements OnInit {
 
   public backgroundImage: string = "url('https://imgur.com/55Wl0dX.png')";
   public bckColor = "#f2f2f2";
+  public tema = "Herois";
 
   public cards = [
     {
@@ -42,6 +43,7 @@ export class MenuTemasComponent implements OnInit {
   changeTheme(card: any) {
     this.backgroundImage = `url(${card.backgroundImage})`;
     this.bckColor = card.color;
+    this.tema = card.tema;
   }
 
   public selecionar(){

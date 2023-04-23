@@ -1,5 +1,5 @@
 .background {
-  background-image: url('https://imgur.com/TqtKf5j.png');
+  background-image: url('https://imgur.com/TqtKf5j.png%27');
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -80,6 +80,88 @@
   animation-iteration-count: infinite;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: 30%;
+  background: linear-gradient(to bottom, #5BBABA, #B1A857);
+  z-index: 2;
+  border-radius: 15px;
+}
+
+.first-container {
+  margin-top: 2%;
+  margin-left: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 95%;
+  background-color: rgba(0, 87, 77, 0.55);
+  //background-color: rgba(87, 0, 5, 0.67);
+  border-radius: 15px;
+}
+
+.second-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 93%;
+  height: 78%;
+  background-color: #028f7e;
+  border-radius: 15px;
+}
+
+.label {
+  margin-bottom: 10%;
+  font-size: 6em;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.modalButtonGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.modal-button {
+  width: 50%;
+  margin: 0 20px;
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid white;
+}
+
+.modal-button:hover {
+  cursor: pointer;
+  background-color: #028f7e;
+}
+
+.winnerCard {
+  border: 2px solid #028f7e;
+}
+
 
 @keyframes card-animation-bot {
   from {
@@ -101,5 +183,4 @@
     background-color: rgba(255, 189, 6, 0.616);
   }
 }
-
 

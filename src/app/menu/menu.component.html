@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <div class="containerMain">
+      <div class="divEsquerda">
+        <div class="fotos">
+          <div class="sombraUm"></div>       
+          <div class="sombraDois"></div>
+          <div class="containerCard">
+            <img class="cardsSmmide" src="../../assets/img/smiide.png" alt="">
+          </div>   
+        </div>
+
+      </div>
+      <div class="divDireita">
+        <section class="menu">
+          <h1 class="tituloLabel">SMMIDE</h1>
+          <button class="botoesMenu" (click)="navigateToMesa()">JOGAR</button>
+          <button class="botoesMenu" id="openModalBtn" (click) = "openModal()">REGRAS</button>
+          <button class="botoesMenu">CONFIGURAÇÃO</button>
+        </section>
+      </div>
+    </div>
+    <div class="modal-background" id="modalBackground">
+      <div class="modal" id="modal">
+        <h2 class="tituloRegras"> Como jogar?</h2>
+        <p class="regras">Ao iniciar o jogo, você receberá suas cartas, por rodada, você deve escolher o atributo mais forte de sua carta e clicar em "Jogar".</p>
+        <p class="separador"></p>
+        <p class="regras">Caso seu atributo seja mais forte que o atributo da carta do robô, você venceu a rodada, sua carta e a da robo irão para o final do seu baralho,
+                            caso contraio, sua carta vai para o final do deck de cartas do robô, e o robô escolherá o atributo da rodada seguinte.</p>
+        <p class="separador"></p>
+        <p class="regras">Vence quem estiver com todas as cartas do baralho no seu deck.</p>
+        <button class= "closeModal" id="closeModalBtn"><span class="lebalFechar">Fechar</span></button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

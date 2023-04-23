@@ -1,12 +1,17 @@
 <div class="card">
   <img class="img" src="{{carta.imageUrl}}" alt="ata">
   <div class="infos">
-    <div class="titulo"><h1>{{carta.titulo}}</h1></div>
+    <div
+     class="titulo"
+     [style.background]="'linear-gradient(90deg, rgba(2,0,36,1) 0%, ' + carta.cor + ' 50%, rgba(2,0,36,1) 100%)'">
+      <h1>{{carta.titulo}}</h1>
+    </div>
     <div
       *ngFor="let propriedade of carta.atributos; let i = index"
       class="atributo"
       (click)="selecionarAtributo(i)"
-      [class.clicado]="atributoSelecionado === i">
+      [class.clicado]="atributoSelecionado === i"
+      [style.background]="'linear-gradient(90deg, rgba(2,0,36,1) 0%, ' + carta.cor + ' 100%)'">
       <h3>{{propriedade.titulo}}</h3>
       <h3>{{propriedade.valor}}</h3>
     </div>

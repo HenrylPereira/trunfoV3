@@ -8,29 +8,29 @@ import { Router } from '@angular/router';
 })
 export class MenuTemasComponent implements OnInit {
 
-  public backgroundImage: string = "url('https://imgur.com/55Wl0dX.png')";
+  public backgroundImage: string = "url('https://w0.peakpx.com/wallpaper/916/847/HD-wallpaper-homem-aranha-filmes-herois-homem-aranha-marvel-spider-man.jpg')";
   public bckColor = "#f2f2f2";
-  public tema = "Herois";
+  public tema = "herois";
 
   public cards = [
     {
       cardImage: 'https://imgur.com/55Wl0dX.png',
       backgroundImage: 'https://w0.peakpx.com/wallpaper/916/847/HD-wallpaper-homem-aranha-filmes-herois-homem-aranha-marvel-spider-man.jpg',
-      tema: 'heros',
+      tema: 'herois',
       color:"#69007351",
       id: 1
     },
     {
       cardImage: 'https://imgur.com/DCHUcKG.png',
-      backgroundImage: 'https://imgur.com/Cq8WWoS.png',
-      tema: 'cars',
+      backgroundImage: 'https://i.pinimg.com/originals/c8/fc/0e/c8fc0e6a7e5745fab7531699e8a30fad.jpg',
+      tema: 'carros',
       color:"#73001051",
       id: 2
     },
     {
       cardImage: 'https://imgur.com/ohRLf7M.png',
       backgroundImage: 'https://pbs.twimg.com/media/EtdjOCrXAAgn9bd.jpg',
-      tema: 'soccer',
+      tema: 'futebol',
       color:"#00733051",
       id: 3
     }
@@ -47,7 +47,7 @@ export class MenuTemasComponent implements OnInit {
   }
 
   public selecionar(){
-    this.router.navigateByUrl('/mesa')
+    this.router.navigateByUrl(`/mesa/${this.tema}`)
   }
 
 }

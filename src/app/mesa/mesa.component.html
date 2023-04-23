@@ -1,15 +1,30 @@
 <div class="background">
   <div class="top-side">
-    <img src="../../assets/card-back.png" alt="" class="top-cards-back" *ngFor="let card of quantCards; let i" [style.margin-left]="i + '6px'">
+    <img src="../../assets/card-back.png" alt="" class="top-cards-back" *ngFor="let card of deckDoJogardor; let i" [style.margin-left]="i + '6px'">
   </div>
   <div class="center-table">
-    <app-card></app-card>
-    <app-card class="bot-card"></app-card>
+     <app-card (atributoSelecionadoEvent)="onAtributoSelecionadoRecebido($event)" [carta]="cartaJogador" [style.winnerCard]="jogadorVencedor"></app-card>
+     <app-card [carta]="cartaRobo" [style.display]="displayRobo" [ngClass]="animation" [style.winnerCard]="botVencedor"></app-card>
   </div>
   <div class="player-side">
-    <img src="../../assets/card-back.png" alt="" class="player-cards-back" *ngFor="let card of quantCards; let i" [style.margin-left]="i + '10px'">
-    <button class="play-btn">Jogar</button>
+    <img src="../../assets/card-back.png" alt="" class="player-cards-back" *ngFor="let card of teste; let i" [style.margin-left]="i + '10px'">
+    <button class="play-btn" (click)="duelo(atributoSelecionadoRecebido)" >Jogar</button>
+  </div>
+  <div class="modal">
+    <div class="modal-content">
+      <div class="first-container">
+        <div class="second-container">
+            <h1 class="label">{{vencedor}}!</h1>
+        </div>
+      </div>
+      <div class="modalButtonGroup">
+        <button class="modal-button">Retornar para Menu</button>
+        <button class="modal-button" id="jogar-novamente" (click)="closeModalVencedor()">Jogar Novamente</button>
+      </div>
+
+    </div>
   </div>
 </div>
+
 
 

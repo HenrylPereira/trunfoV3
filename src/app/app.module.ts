@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { MenuModule } from './menu/menu.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -11,6 +13,7 @@ import { MenuModule } from './menu/menu.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MenuModule
   ],
   providers: [],

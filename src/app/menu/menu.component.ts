@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { cardApi } from '../api/service/card-service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   public loading = false;
 
-  constructor(private router:Router) {
+  constructor(private router:Router, private _cardApi:cardApi) {
 
    }
 
@@ -19,6 +21,11 @@ export class MenuComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
     }, 3000);
+    this._cardApi.getAllCards()
+                 .subscribe(
+                  (response) => { console.log(response)},
+                  (error) => { console.log(error) }
+                 );
   }
 
   navigateToMesa(){

@@ -15,7 +15,6 @@ export class MesaComponent implements OnInit {
 
   public displayRobo = 'none';
   public animation = '';
-  public teste = [1,2]
   public loading = true;
   public atributoSelecionado!: number;
   public baralhoCompleto!: cardInterface[];
@@ -61,7 +60,7 @@ export class MesaComponent implements OnInit {
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 1; i ++){
+    for(let i = 0; i <= 4; i ++){
       const indiceAleatorio = Math.floor(Math.random() * this.baralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
@@ -180,7 +179,7 @@ export class MesaComponent implements OnInit {
   duelo(indicie:any){
     this.displayRobo = 'block';
     this.animation = 'bot-card';
-  setTimeout(() => {
+    setTimeout(() => {
       if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substr(0,1) == "A")){
         if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
           this.roboVenceRodada();

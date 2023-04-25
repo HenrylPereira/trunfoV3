@@ -95,10 +95,16 @@ img {
   height: 100vh;
   transform: skew(-15deg);
   overflow: hidden;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
+}
+
+.bg-image {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  transform: skew(15deg);
   transition: background .4s ease-in;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .btn-selecionar{
@@ -119,7 +125,7 @@ img {
 .titulo {
   position: absolute;
   top: 0%;
-  left: 5%;
+  left: 1%;
 }
 
 h1 {
@@ -133,9 +139,16 @@ h1 {
 h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 1vw;
-  color: #9A9A9A;
+  color: #ffffff;
   margin-top: 0;
   padding-top: 0;
+  margin-left: 5px;
+}
+
+.tema {
+  height: 10%;
+  width: 100%;
+  transition: background .2s ease-out;
 }
 
 

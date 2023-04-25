@@ -5,6 +5,9 @@
   <div class="center-table">
      <app-card (atributoSelecionadoEvent)="onAtributoSelecionadoRecebido($event)" [carta]="cartaJogador" [style.winnerCard]="jogadorVencedor"></app-card>
      <app-card [carta]="cartaRobo" [style.display]="displayRobo" [ngClass]="animation" [style.winnerCard]="botVencedor"></app-card>
+     <div class="placar">
+       <h1 class="label-placar">{{resultadoPlacar}}</h1>
+     </div>
   </div>
   <div class="player-side">
     <img src="../../assets/card-back.png" alt="" class="player-cards-back" *ngFor="let card of deckDoJogardor; let i=index" [style.margin-left]="i + '10px'">
@@ -18,8 +21,8 @@
         </div>
       </div>
       <div class="modalButtonGroup">
-        <button class="modal-button">Retornar para Menu</button>
-        <button class="modal-button" id="jogar-novamente" (click)="closeModalVencedor()">Jogar Novamente</button>
+        <button class="modal-button" (click) = "navigateToMenu()">Retornar para Menu</button>
+        <button class="modal-button" id="jogar-novamente" (click)= "jogarNovamente()">Jogar Novamente</button>
       </div>
 
     </div>

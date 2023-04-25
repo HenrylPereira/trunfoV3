@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   public loading = true;
-
+  
   constructor(private router:Router) {
 
    }

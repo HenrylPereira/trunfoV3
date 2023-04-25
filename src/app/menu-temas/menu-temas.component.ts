@@ -22,7 +22,7 @@ export class MenuTemasComponent implements OnInit {
     },
     {
       cardImage: 'https://imgur.com/DCHUcKG.png',
-      backgroundImage: 'https://i.pinimg.com/originals/c8/fc/0e/c8fc0e6a7e5745fab7531699e8a30fad.jpg',
+      backgroundImage: 'https://imgur.com/NK7CsyN.png',
       tema: 'carros',
       color:"#73001051",
       id: 2

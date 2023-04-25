@@ -1,17 +1,16 @@
-import { cartasFutebol, cartasCarros } from './../../mock/cartasMock';
 import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
-import { cartasHerois } from 'src/mock/cartasMock';
+import { Router } from '@angular/router';
 import { cardInterface } from '../card/interfaces/card-interface';
 import { ActivatedRoute } from '@angular/router';
+import { cartasFutebol, cartasCarros , cartasHerois} from './../../mock/cartasMock';
+
 @Component({
   selector: 'app-mesa',
   templateUrl: './mesa.component.html',
   styleUrls: ['./mesa.component.scss']
 })
 
-export class MesaComponent implements OnInit {
-
-  constructor(private route: ActivatedRoute) {}
+export class MesaComponent implements OnInit{
 
   public displayRobo = 'none';
   public animation = '';
@@ -29,6 +28,10 @@ export class MesaComponent implements OnInit {
   public vencedor: String = "";
   public jogadorVencedor = 'none';
   public botVencedor = 'none';
+  public resultadoPlacar!: String;
+
+	constructor(private router:Router, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -37,6 +40,7 @@ export class MesaComponent implements OnInit {
     });
     this.destribuirBaralhos();
     this.cartasBatalhando();
+    this.pegarClicknoBotaoJogarNovamente();
   }
 
   private selecionarTema(tema: string | null){
@@ -60,7 +64,7 @@ export class MesaComponent implements OnInit {
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 4; i ++){
+    for(let i = 0; i <= 1; i ++){ //era 7 tem que ser a metade
       const indiceAleatorio = Math.floor(Math.random() * this.baralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
@@ -115,90 +119,198 @@ export class MesaComponent implements OnInit {
   jogadorVenceRodada(){
     this.cartasDaRodada();
 
-    this.deckDoJogardor.push(this.primeiraCartaJogador);
     this.deckDoJogardor.push(this.primeiraCartaRobo);
+    this.deckDoJogardor.push(this.primeiraCartaJogador);
     this.cartasBatalhando()
     console.log("Jogador venceu");
+
     console.log(this.deckDoJogardor);
     console.log(this.deckDoRobo)
     this.verificaQtdCartas()
   }
 
-  closeModalVencedor(){
+
+  jogarNovamente(){
+    this.deckDoJogardor = [];
+    this.deckDoRobo = [];
+    this.destribuirBaralhos();
+    this.cartasBatalhando();
+    this.closeModal();
+  }
+
+  pegarClicknoBotaoJogarNovamente(){
     const jogarNovamenteButton = document.getElementById('jogar-novamente');
 
     if (jogarNovamenteButton) {
-      jogarNovamenteButton.addEventListener('click', () => {
-      const modal = document.querySelector('.modal') as HTMLElement;
-      if (modal) {
-        modal.style.display = 'none';
-      }
-    });
+      jogarNovamenteButton.addEventListener('click', this.closeModal.bind(this));
     }
+  }
+
+  closeModal() {
+    const modal = document.querySelector('.modal') as HTMLElement;
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  navigateToMenu(){
+    console.log("teste")
+    this.router.navigate(['menu']);
+  }
+
+  roboVencedorDaPartida(){
+    var modal = document.querySelector('.modal') as HTMLElement;
+    var modalContent = document.querySelector('.modal-content') as HTMLElement;
+    var firstContainer = document.querySelector('.first-container ') as HTMLElement;
+    var secondContainer = document.querySelector('.second-container ') as HTMLElement;
+
+    if(modal || modalContent || firstContainer || secondContainer){
+      modal.style.display = 'block';
+      modalContent.style.background = 'linear-gradient(to bottom, #DA9A5E, #9F536A';
+      firstContainer.style.background = 'rgba(87, 0, 5, 0.67)'
+      secondContainer.style.background = '#800303'
+    }
+
+    this.vencedor = "Derrota";
+    console.log("robo venceu");
+  }
+
+  jogadorVencedorDaPartida(){
+    var modal = document.querySelector('.modal') as HTMLElement;
+    var modalContent = document.querySelector('.modal-content') as HTMLElement;
+    var firstContainer = document.querySelector('.first-container ') as HTMLElement;
+    var secondContainer = document.querySelector('.second-container ') as HTMLElement;
+
+    if(modal || modalContent || firstContainer || secondContainer){
+      modal.style.display = 'block';
+      modalContent.style.background = 'linear-gradient(to bottom, #5BBABA, #B1A857)';
+      firstContainer.style.background = 'rgba(0, 87, 77, 0.55)';
+      secondContainer.style.background = '#028f7e';
+    }
+
+    this.vencedor = "Vitória";
+    console.log("jogador venceu");
   }
 
   verificaQtdCartas(){
 
     if(this.deckDoRobo.length == 0 || this.deckDoJogardor.length == 0){
       if(this.deckDoJogardor.length == 0 ) {
-        var modal = document.querySelector('.modal') as HTMLElement;
-        var modalContent = document.querySelector('.modal-content') as HTMLElement;
-        var firstContainer = document.querySelector('.first-container ') as HTMLElement;
-        var secondContainer = document.querySelector('.second-container ') as HTMLElement;
-
-        this.vencedor = "Derrota";
-
-        if(modal){
-            modal.style.display = 'block';
-        }
-
-        if(modalContent){
-          modalContent.style.background = 'linear-gradient(to bottom, #DA9A5E, #9F536A';
-        }
-
-        if(firstContainer){
-          firstContainer.style.background = 'rgba(87, 0, 5, 0.67)'
-        }
-
-        if(secondContainer){
-          secondContainer.style.background = '#800303'
-        }
-
-        console.log("robo venceu");
+        this.roboVencedorDaPartida();
       }else{
-        var modalContent = document.querySelector('.modal') as HTMLElement;
-        this.vencedor = "Vitória";
-        if(modalContent){
-            modalContent.style.display = 'block';
-        }
-        console.log("jogador venceu");
+        this.jogadorVencedorDaPartida();
       }
     }
   }
 
-  duelo(indicie:any){
-    this.displayRobo = 'block';
-    this.animation = 'bot-card';
+  tratamentoTrunfo(){
+    if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) == "A")){
+      console.log("TRUNFO PERDEU");
+      if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
+        this.roboVenceRodada();
+      }else{
+        this.jogadorVenceRodada();
+      }
+    }else{
+      console.log("TRUNFO VENCEU A RODADA");
+      if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) != "A"){
+        this.jogadorVenceRodada();
+      }
+      if(this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) != "A"){
+        this.roboVenceRodada();
+      }
+    }
+  }
+
+  varificaPlacar(indicie:any){
     setTimeout(() => {
-      if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substr(0,1) == "A")){
-        if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
-          this.roboVenceRodada();
+      var placar = document.querySelector('.placar') as HTMLElement;
+
+      if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
+        if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) == "A")){
+          console.log("TRUNFO PERDEU");
+          if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
+            this.resultadoPlacar = "Perdeu a Rodada";
+            if(placar){
+              placar.style.display= 'flex';
+              placar.style.background = '#FF434E'
+            }
+          }else{
+            this.resultadoPlacar = "Venceu a Rodada";
+            if(placar){
+              placar.style.display= 'flex';
+              placar.style.background = '#43FF78'
+            }
+          }
         }else{
-          this.jogadorVenceRodada();
+          console.log("TRUNFO VENCEU A RODADA");
+          if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) != "A"){
+            this.resultadoPlacar = "Venceu a Rodada";
+            if(placar){
+              placar.style.display= 'flex';
+              placar.style.background = '#43FF78'
+            }
+          }
+          if(this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) != "A"){
+            this.resultadoPlacar = "Perdeu a Rodada";
+            if(placar){
+              placar.style.display= 'flex';
+              placar.style.background = '#FF434E'
+            }
+          }
+        }
+      }else{
+        if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor ){
+          this.resultadoPlacar = "Venceu a Rodada";
+          if(placar){
+            placar.style.display= 'flex';
+            placar.style.background = '#43FF78'
+          }
+        }else{
+          this.resultadoPlacar = "Perdeu a Rodada";
+          if(placar){
+            placar.style.display= 'flex';
+            placar.style.background = '#FF434E'
+          }
         }
       }
-      if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor){
-        this.jogadorVenceRodada();
-        this.jogadorVencedor = 'block';
-      }else{
-        this.roboVenceRodada();
-        this.botVencedor = 'block';
+    },1500)
+
+  }
+
+  clearPlacar(){
+    var placar = document.querySelector('.placar') as HTMLElement;
+
+    if(placar){
+      placar.style.display = 'none';
+    }
+  }
+
+  duelo(indicie:any){
+    console.log(indicie)
+    this.displayRobo = 'block';
+    this.animation = 'bot-card';
+    this.varificaPlacar(indicie);
+    setTimeout(() => {
+      if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
+        this.tratamentoTrunfo();
+      }
+      else{
+        if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor){
+          this.jogadorVenceRodada();
+          this.jogadorVencedor = 'block';
+        }else{
+          this.roboVenceRodada();
+          this.botVencedor = 'block';
+        }
       }
       this.displayRobo = 'none';
       this.animation = '';
       this.jogadorVencedor = 'none';
       this.botVencedor = 'none';
-    }, 3000);
+      this.clearPlacar();
+    }, 4000);
+
   }
 }
 

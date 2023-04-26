@@ -350,11 +350,11 @@ export const cartasCarros: cardInterface[] = [
     titulo: 'McLaren Senna',
        indice: 'S10',
        atributos: [
-         { titulo: 'Velocidade Max', valor: 1 },
-         { titulo: 'Potência(Cv)', valor: 2 },
-         { titulo: 'Peso', valor: 3 },
-         { titulo: '0 a 100', valor: 4 },
-         { titulo: 'Aéreo Dinâmico', valor: 5 },
+         { titulo: 'Velocidade Max', valor: 100 },
+         { titulo: 'Potência(Cv)', valor: 100 },
+         { titulo: 'Peso', valor: 100 },
+         { titulo: '0 a 100', valor: 100 },
+         { titulo: 'Aéreo Dinâmico', valor: 100 },
        ],
        cor: '#FFB906',
        imageUrl: 'https://imgur.com/ffItb2n.jpg'
@@ -363,11 +363,11 @@ export const cartasCarros: cardInterface[] = [
      titulo: 'L. Aventador',
      indice: 'A3',
      atributos: [
-       { titulo: 'Velocidade Max', valor: 6 },
-       { titulo: 'Potência(Cv)', valor: 7 },
-       { titulo: 'Peso', valor: 8 },
-       { titulo: '0 a 100', valor: 9 },
-       { titulo: 'Aéreo Dinâmico', valor: 10 },
+       { titulo: 'Velocidade Max', valor: 8 },
+       { titulo: 'Potência(Cv)', valor: 6 },
+       { titulo: 'Peso', valor: 10 },
+       { titulo: '0 a 100', valor: 7 },
+       { titulo: 'Aéreo Dinâmico', valor: 9 },
      ],
      cor: '#FF0909',
      imageUrl: 'https://imgur.com/A5YVSzK.jpg'
@@ -376,11 +376,11 @@ export const cartasCarros: cardInterface[] = [
      titulo: 'Pagani Zonda',
      indice: 'S9',
      atributos: [
-       { titulo: 'Velocidade Max', valor: 11 },
-       { titulo: 'Potência(Cv)', valor: 12 },
-       { titulo: 'Peso', valor: 13 },
-       { titulo: '0 a 100', valor: 14 },
-       { titulo: 'Aéreo Dinâmico', valor: 15 },
+       { titulo: 'Velocidade Max', valor: 13 },
+       { titulo: 'Potência(Cv)', valor: 14 },
+       { titulo: 'Peso', valor: 11 },
+       { titulo: '0 a 100', valor: 15 },
+       { titulo: 'Aéreo Dinâmico', valor: 12 },
      ],
      cor: '#FF0909',
      imageUrl: 'https://imgur.com/jVOhK8c.jpg'
@@ -389,15 +389,15 @@ export const cartasCarros: cardInterface[] = [
      titulo: 'Buggati Chiron',
      indice: 'Q2',
      atributos: [
-       { titulo: 'Velocidade Max', valor: 16 },
-       { titulo: 'Potência(Cv)', valor: 17 },
-       { titulo: 'Peso', valor: 18 },
-       { titulo: '0 a 100', valor: 19 },
-       { titulo: 'Aéreo Dinâmico', valor: 20 },
+       { titulo: 'Velocidade Max', valor: 19 },
+       { titulo: 'Potência(Cv)', valor: 16 },
+       { titulo: 'Peso', valor: 20 },
+       { titulo: '0 a 100', valor: 16 },
+       { titulo: 'Aéreo Dinâmico', valor: 17 },
      ],
      cor: '#FF0909',
      imageUrl: 'https://imgur.com/UpGMn5S.jpg'
-    },/*
+    },
     {
      titulo: 'Supra',
      indice: 'A20',
@@ -421,7 +421,7 @@ export const cartasCarros: cardInterface[] = [
        { titulo: '0 a 100', valor: 29 },
        { titulo: 'Aéreo Dinâmico', valor: 30 },
      ],
-     cor: '#fff',
+     cor: '#FF0909',
      imageUrl: 'https://imgur.com/9cfvAwh.jpg'
     },
     {
@@ -434,10 +434,9 @@ export const cartasCarros: cardInterface[] = [
        { titulo: '0 a 100', valor: 34 },
        { titulo: 'Aéreo Dinâmico', valor: 35 },
      ],
-     cor: '#fff',
+     cor: '#FF0909',
      imageUrl: 'https://imgur.com/WKjDpZ3.jpg'
     },
-
     {
      titulo: 'Lamborghini Veneno',
      indice: 'A23',
@@ -448,9 +447,9 @@ export const cartasCarros: cardInterface[] = [
        { titulo: '0 a 100', valor: 39 },
        { titulo: 'Aéreo Dinâmico', valor: 40 },
      ],
-     cor: '#fff',
+     cor: '#FF0909',
      imageUrl: 'https://imgur.com/TXNWDpK.jpg'
-    },
+    },/*
     {
      titulo: 'Mercedes G63',
      indice: 'A32',

@@ -3,6 +3,7 @@
     <img src="../../assets/card-back.png" alt="" class="top-cards-back" *ngFor="let card of deckDoRobo; let i=index" [style.margin-left]="i + '6px'">
   </div>
   <div class="center-table">
+    <div class="atributo"><h2 class="atributoH2">Atributo: {{atributoName}}</h2></div>
      <app-card (atributoSelecionadoEvent)="onAtributoSelecionadoRecebido($event)" [carta]="cartaJogador" [style.winnerCard]="jogadorVencedor"></app-card>
      <app-card [carta]="cartaRobo" [style.display]="displayRobo" [ngClass]="animation" [style.winnerCard]="botVencedor"></app-card>
      <div class="placar">

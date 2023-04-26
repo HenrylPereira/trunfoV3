@@ -29,6 +29,8 @@ export class MesaComponent implements OnInit{
   public jogadorVencedor = 'none';
   public botVencedor = 'none';
   public resultadoPlacar!: String;
+  public atributoName = 'Força';
+  public disabled = false;
 
 	constructor(private router:Router, private route: ActivatedRoute) {
   }

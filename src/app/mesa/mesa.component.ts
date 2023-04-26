@@ -29,6 +29,8 @@ export class MesaComponent implements OnInit{
   public jogadorVencedor = 'none';
   public botVencedor = 'none';
   public resultadoPlacar!: String;
+  public atributoMaisForteDaCarta!:number;
+  public indicieDoMelhorAtributoRobo!: number;
 
 	constructor(private router:Router, private route: ActivatedRoute) {
   }
@@ -64,7 +66,7 @@ export class MesaComponent implements OnInit{
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 1; i ++){ //era 7 tem que ser a metade
+    for(let i = 0; i <= 3; i ++){ //era 7 tem que ser a metade
       const indiceAleatorio = Math.floor(Math.random() * this.baralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
@@ -105,18 +107,37 @@ export class MesaComponent implements OnInit{
   }
 
   roboVenceRodada(){
+    if (this.jogadorVencedor == 'none') { // verifica se o jogador perdeu a rodada anterior
+
+      const indiceDoMelhorAtributoRobo = this.encontrarIndiceDoMelhorAtributo(this.deckDoRobo[0]);
+
+      this.duelo(indiceDoMelhorAtributoRobo); // chama o método de duelo novamente com o índice do atributo mais forte do robô
+    }
+
+    const botaoDuelo = document.querySelector('.play-btn') as HTMLElement;
+
+    if (botaoDuelo) {
+      botaoDuelo.style.display = 'none';
+    }
+
     this.cartasDaRodada();
 
+    this.verificaQtdCartas();
     this.deckDoRobo.push(this.primeiraCartaJogador);
     this.deckDoRobo.push(this.primeiraCartaRobo);
     this.cartasBatalhando();
     console.log("Robo venceu");
     console.log(this.deckDoJogardor);
     console.log(this.deckDoRobo)
-    this.verificaQtdCartas()
   }
 
   jogadorVenceRodada(){
+    const botaoDuelo = document.querySelector('.play-btn') as HTMLElement;
+
+    if (botaoDuelo) {
+      botaoDuelo.style.display = 'block';
+    }
+
     this.cartasDaRodada();
 
     this.deckDoJogardor.push(this.primeiraCartaRobo);
@@ -131,11 +152,7 @@ export class MesaComponent implements OnInit{
 
 
   jogarNovamente(){
-    this.deckDoJogardor = [];
-    this.deckDoRobo = [];
-    this.destribuirBaralhos();
-    this.cartasBatalhando();
-    this.closeModal();
+    location.reload();
   }
 
   pegarClicknoBotaoJogarNovamente(){
@@ -208,6 +225,7 @@ export class MesaComponent implements OnInit{
       console.log("TRUNFO PERDEU");
       if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
         this.roboVenceRodada();
+
       }else{
         this.jogadorVenceRodada();
       }
@@ -218,6 +236,12 @@ export class MesaComponent implements OnInit{
       }
       if(this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) != "A"){
         this.roboVenceRodada();
+        if (this.jogadorVencedor == 'none') { // verifica se o jogador perdeu a rodada anterior
+
+          const indiceDoMelhorAtributoRobo = this.encontrarIndiceDoMelhorAtributo(this.deckDoRobo[0]);
+
+          this.duelo(indiceDoMelhorAtributoRobo); // chama o método de duelo novamente com o índice do atributo mais forte do robô
+        }
       }
     }
   }
@@ -286,6 +310,24 @@ export class MesaComponent implements OnInit{
     }
   }
 
+  encontrarIndiceDoMelhorAtributo(carta: any): number {
+    let indiceDoMelhorAtributo = 0;
+    let maiorValor = -Infinity;
+
+    for(let i = 0; i < this.deckDoRobo[0].atributos.length; i++) {
+      let valorAtributo = this.deckDoRobo[0].atributos[i].valor;
+
+      if (valorAtributo > maiorValor) {
+        maiorValor = valorAtributo;
+        indiceDoMelhorAtributo = i;
+      }
+    }
+    console.log("________")
+    console.log(maiorValor)
+
+    return indiceDoMelhorAtributo;
+  }
+
   duelo(indicie:any){
     console.log(indicie)
     this.displayRobo = 'block';
@@ -302,15 +344,20 @@ export class MesaComponent implements OnInit{
         }else{
           this.roboVenceRodada();
           this.botVencedor = 'block';
+
         }
       }
-      this.displayRobo = 'none';
-      this.animation = '';
-      this.jogadorVencedor = 'none';
-      this.botVencedor = 'none';
+
+      if(this.jogadorVencedor != 'none'){
+        this.displayRobo = 'none';
+        this.animation = '';
+        this.jogadorVencedor = 'none';
+        this.botVencedor = 'none';
+      }
+
       this.clearPlacar();
     }, 4000);
-
+    console.log("robo chamou")
   }
 }
 

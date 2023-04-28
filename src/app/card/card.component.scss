@@ -75,5 +75,20 @@ h1, h3 {
 }
 
 .atributo:hover, .clicado {
-  background: linear-gradient(90deg, rgb(10, 3, 148) 0%, rgb(112, 142, 250) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.555) 0%, rgba(225, 231, 255, 0.473) 100%) !important;
+}
+
+.atributoRobo {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(63, 93, 201, 1) 100%);
+  width: 100%;
+  height: 13%;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  h3 {
+    margin-left: 10px;
+    margin-right: 20px;
+  }
 }

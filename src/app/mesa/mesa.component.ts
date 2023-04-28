@@ -1,4 +1,4 @@
-import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
+import { COMPILER_OPTIONS, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { cardInterface } from '../card/interfaces/card-interface';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,7 @@ import { cartasFutebol, cartasCarros , cartasHerois} from './../../mock/cartasMo
 })
 
 export class MesaComponent implements OnInit{
-
+  @Output() resetEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   public displayRobo = 'none';
   public animation = '';
   public loading = true;
@@ -25,14 +25,13 @@ export class MesaComponent implements OnInit{
   public primeiraCartaJogador: any;
   public primeiraCartaRobo: any;
   public atributoSelecionadoRecebido!: number;
-  public vencedor: String = "";
+  public vencedor: string = "";
   public jogadorVencedor = 'none';
   public botVencedor = 'none';
-  public resultadoPlacar!: String;
+  public resultadoPlacar!: string;
   public atributoMaisForteDaCarta!:number;
   public indicieDoMelhorAtributoRobo!: number;
   public atributoName = 'Força';
-  public disabled = false;
 
 	constructor(private router:Router, private route: ActivatedRoute) {
   }
@@ -358,6 +357,7 @@ export class MesaComponent implements OnInit{
       }
 
       this.clearPlacar();
+      this.resetEvent.emit(true);
     }, 4000);
     console.log("robo chamou")
   }

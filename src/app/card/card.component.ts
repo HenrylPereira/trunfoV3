@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { cardInterface, atributoInterface } from './interfaces/card-interface';
 
 @Component({
@@ -6,17 +6,26 @@ import { cardInterface, atributoInterface } from './interfaces/card-interface';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
+export class CardComponent implements OnChanges {
+  @Input() public robo = false;
+  @Input() public reset: any;
 	@Input() public carta!: any;
   @Output() public atributoSelecionadoEvent = new EventEmitter<number>();
-  public atributoSelecionado!:number;
+  public atributoSelecionado!: number | null;
   public loading = true;
 
 
   constructor() {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('entoruu');
+    if (this.reset === true) {
+      this.atributoSelecionado = null;
+    }
+  }
+
   selecionarAtributo(index:number): void {
-    console.log(index)
+    this.robo === false ? this.atributoSelecionado = index : null;
     this.atributoSelecionadoEvent.emit(index);
   }
 

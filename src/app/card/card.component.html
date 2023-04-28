@@ -5,13 +5,14 @@
     <div
      class="titulo"
      [style.background]="'linear-gradient(90deg, rgba(2,0,36,1) 0%, ' + carta.cor + ' 50%, rgba(2,0,36,1) 100%)'">
-      <h1>{{carta.titulo}}</h1>
+      <h1 class="tituloText">{{carta.titulo}}</h1>
     </div>
     <div
       *ngFor="let propriedade of carta.atributos; let i = index"
-      class="atributo"
       (click)="selecionarAtributo(i)"
       [class.clicado]="atributoSelecionado === i"
+      [class.atributoRobo]="robo"
+      [class.atributo]="!robo"
       [style.background]="'linear-gradient(90deg, rgba(2,0,36,1) 0%, ' + carta.cor + ' 100%)'">
       <h3>{{propriedade.titulo}}</h3>
       <h3>{{propriedade.valor}}</h3>

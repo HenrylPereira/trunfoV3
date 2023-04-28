@@ -12,6 +12,8 @@ import { cartasFutebol, cartasCarros , cartasHerois} from './../../mock/cartasMo
 
 export class MesaComponent implements OnInit{
   @Output() resetEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() atributoSelecionadoRobo: EventEmitter<number> = new EventEmitter<number>();
+
   public displayRobo = 'none';
   public animation = '';
   public loading = true;
@@ -31,7 +33,8 @@ export class MesaComponent implements OnInit{
   public resultadoPlacar!: string;
   public atributoMaisForteDaCarta!:number;
   public indicieDoMelhorAtributoRobo!: number;
-  public atributoName = 'Força';
+  public atributoName!: string;
+
 
 	constructor(private router:Router, private route: ActivatedRoute) {
   }
@@ -44,6 +47,7 @@ export class MesaComponent implements OnInit{
     this.destribuirBaralhos();
     this.cartasBatalhando();
     this.pegarClicknoBotaoJogarNovamente();
+
   }
 
   private selecionarTema(tema: string | null){
@@ -60,8 +64,9 @@ export class MesaComponent implements OnInit{
     }
   }
 
-  onAtributoSelecionadoRecebido(atributoSelecionado: number) {
-    this.atributoSelecionadoRecebido = atributoSelecionado;
+  onAtributoSelecionadoRecebido(atributoSelecionado: any) {
+    this.atributoSelecionadoRecebido = atributoSelecionado.index;
+    this.atributoName = atributoSelecionado.nome.titulo;
   }
 
   destribuidorDeCartasJogador(){
@@ -108,13 +113,6 @@ export class MesaComponent implements OnInit{
   }
 
   roboVenceRodada(){
-    if (this.jogadorVencedor == 'none') { // verifica se o jogador perdeu a rodada anterior
-
-      const indiceDoMelhorAtributoRobo = this.encontrarIndiceDoMelhorAtributo(this.deckDoRobo[0]);
-
-      this.duelo(indiceDoMelhorAtributoRobo); // chama o método de duelo novamente com o índice do atributo mais forte do robô
-    }
-
     const botaoDuelo = document.querySelector('.play-btn') as HTMLElement;
 
     if (botaoDuelo) {
@@ -127,9 +125,16 @@ export class MesaComponent implements OnInit{
     this.deckDoRobo.push(this.primeiraCartaJogador);
     this.deckDoRobo.push(this.primeiraCartaRobo);
     this.cartasBatalhando();
-    console.log("Robo venceu");
-    console.log(this.deckDoJogardor);
-    console.log(this.deckDoRobo)
+
+    const indiceDoMelhorAtributoRobo = this.encontrarIndiceDoMelhorAtributo(this.deckDoRobo[0]);
+    setTimeout(() => {
+      this.atributoSelecionadoRobo.emit(indiceDoMelhorAtributoRobo);
+    },500);
+    this.duelo(indiceDoMelhorAtributoRobo); // chama o método de duelo novamente com o índice do atributo mais forte do robô
+
+    console.log("$$$$")
+    console.log("indicie escolhido " + indiceDoMelhorAtributoRobo)
+    console.log(this.deckDoRobo[0].titulo)
   }
 
   jogadorVenceRodada(){
@@ -144,10 +149,6 @@ export class MesaComponent implements OnInit{
     this.deckDoJogardor.push(this.primeiraCartaRobo);
     this.deckDoJogardor.push(this.primeiraCartaJogador);
     this.cartasBatalhando()
-    console.log("Jogador venceu");
-
-    console.log(this.deckDoJogardor);
-    console.log(this.deckDoRobo)
     this.verificaQtdCartas()
   }
 
@@ -212,11 +213,11 @@ export class MesaComponent implements OnInit{
 
   verificaQtdCartas(){
 
-    if(this.deckDoRobo.length == 0 || this.deckDoJogardor.length == 0){
-      if(this.deckDoJogardor.length == 0 ) {
-        this.roboVencedorDaPartida();
-      }else{
+    if(this.deckDoRobo.length == 0 && this.deckDoJogardor.length == this.deckDoJogardor.length|| this.deckDoJogardor.length == 0 && this.deckDoRobo.length == this.deckDoRobo.length){
+      if(this.deckDoRobo.length == 0 && this.deckDoJogardor.length == this.deckDoJogardor.length) {
         this.jogadorVencedorDaPartida();
+      }else{
+        this.roboVencedorDaPartida();
       }
     }
   }
@@ -226,7 +227,6 @@ export class MesaComponent implements OnInit{
       console.log("TRUNFO PERDEU");
       if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
         this.roboVenceRodada();
-
       }else{
         this.jogadorVenceRodada();
       }
@@ -237,12 +237,6 @@ export class MesaComponent implements OnInit{
       }
       if(this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) != "A"){
         this.roboVenceRodada();
-        if (this.jogadorVencedor == 'none') { // verifica se o jogador perdeu a rodada anterior
-
-          const indiceDoMelhorAtributoRobo = this.encontrarIndiceDoMelhorAtributo(this.deckDoRobo[0]);
-
-          this.duelo(indiceDoMelhorAtributoRobo); // chama o método de duelo novamente com o índice do atributo mais forte do robô
-        }
       }
     }
   }
@@ -326,6 +320,7 @@ export class MesaComponent implements OnInit{
     console.log("________")
     console.log(maiorValor)
 
+
     return indiceDoMelhorAtributo;
   }
 
@@ -358,6 +353,7 @@ export class MesaComponent implements OnInit{
 
       this.clearPlacar();
       this.resetEvent.emit(true);
+      this.atributoName = '';
     }, 4000);
     console.log("robo chamou")
   }

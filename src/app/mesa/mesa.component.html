@@ -7,7 +7,7 @@
       [style.margin-left]="i + '6px'">
   </div>
   <div class="center-table">
-    <div class="atributo"><h2 class="atributoH2">Atributo: {{atributoName}}</h2></div>
+    <div class="atributo" *ngIf="atributoName"><h2 class="atributoH2">{{atributoName}}</h2></div>
      <app-card
       [reset]="resetEvent | async"
       (atributoSelecionadoEvent)="onAtributoSelecionadoRecebido($event)"
@@ -19,6 +19,7 @@
       [style.display]="displayRobo"
       [ngClass]="animation"
       [style.winnerCard]="botVencedor"
+      [atrRobo]="atributoSelecionadoRobo | async"
       [robo]="true">
       </app-card>
      <div class="placar">

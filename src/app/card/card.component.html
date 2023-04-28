@@ -9,7 +9,7 @@
     </div>
     <div
       *ngFor="let propriedade of carta.atributos; let i = index"
-      (click)="selecionarAtributo(i)"
+      (click)="selecionarAtributo(i, propriedade)"
       [class.clicado]="atributoSelecionado === i"
       [class.atributoRobo]="robo"
       [class.atributo]="!robo"

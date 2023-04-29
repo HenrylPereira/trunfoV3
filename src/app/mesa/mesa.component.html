@@ -7,8 +7,8 @@
       [style.margin-left]="i + '6px'">
   </div>
   <div class="center-table">
-    <div class="atributo" *ngIf="atributoName"><h2 class="atributoH2">{{atributoName}}</h2></div>
      <app-card
+      class="card-player"
       [reset]="resetEvent | async"
       (atributoSelecionadoEvent)="onAtributoSelecionadoRecebido($event)"
       [carta]="cartaJogador"
@@ -46,5 +46,6 @@
   </div>
 </div>
 
+<app-loading *ngIf="loading"></app-loading>
 
 

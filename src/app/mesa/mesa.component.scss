@@ -198,6 +198,24 @@
   transition: ease-in;
 }
 
+.card-player {
+  animation-name: card-player-bot;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes card-player-bot {
+  0% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.10);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
 
 @keyframes card-animation-bot {
   from {

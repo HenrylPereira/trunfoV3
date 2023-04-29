@@ -21,7 +21,6 @@ export class CardComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.reset === true) {
       this.atributoSelecionado = null;
-      this.atrRobo = null;
     }
     this.robo === true && this.atrRobo ? this.atributoSelecionado = this.atrRobo : null;
   }

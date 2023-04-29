@@ -75,6 +75,7 @@ h1, h3 {
 }
 
 .atributo:hover, .clicado {
+  transition: 2s;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.555) 0%, rgba(225, 231, 255, 0.473) 100%) !important;
 }
 

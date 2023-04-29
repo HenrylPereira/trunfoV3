@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  public loading = true;
-  
+  public loading = false;
+
   constructor(private router:Router) {
 
    }
 
   ngOnInit(): void {
+    this.loading = true
     setTimeout(() => {
       this.loading = false;
     }, 3000);

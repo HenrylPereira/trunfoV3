@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuTemasComponent } from './menu-temas.component';
 import { CardModule } from '../card/card.module';
+import { LoadingModule } from '../loading/loading.module';
 
 
 
@@ -9,7 +10,8 @@ import { CardModule } from '../card/card.module';
   declarations: [MenuTemasComponent],
   imports: [
     CommonModule,
-    CardModule
+    CardModule,
+    LoadingModule
   ],
   exports: [MenuTemasComponent]
 })

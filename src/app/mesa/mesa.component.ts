@@ -16,7 +16,7 @@ export class MesaComponent implements OnInit{
 
   public displayRobo = 'none';
   public animation = '';
-  public loading = true;
+  public loading = false;
   public atributoSelecionado!: number;
   public baralhoCompleto!: cardInterface[];
   public deckDoJogardor: cardInterface[] = [];
@@ -40,6 +40,7 @@ export class MesaComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.loading = true
     this.route.paramMap.subscribe(params => {
       this.tema = params.get('tema');
       this.selecionarTema(params.get('tema'));
@@ -47,7 +48,9 @@ export class MesaComponent implements OnInit{
     this.destribuirBaralhos();
     this.cartasBatalhando();
     this.pegarClicknoBotaoJogarNovamente();
-
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
   }
 
   private selecionarTema(tema: string | null){
@@ -127,14 +130,15 @@ export class MesaComponent implements OnInit{
     this.cartasBatalhando();
 
     const indiceDoMelhorAtributoRobo = this.encontrarIndiceDoMelhorAtributo(this.deckDoRobo[0]);
+    this.displayRobo = 'none';
+    this.animation = '';
     setTimeout(() => {
+      this.displayRobo = 'block';
+      this.animation = 'bot-card';
       this.atributoSelecionadoRobo.emit(indiceDoMelhorAtributoRobo);
     },500);
-    this.duelo(indiceDoMelhorAtributoRobo); // chama o método de duelo novamente com o índice do atributo mais forte do robô
-
-    console.log("$$$$")
-    console.log("indicie escolhido " + indiceDoMelhorAtributoRobo)
-    console.log(this.deckDoRobo[0].titulo)
+    this.duelo(indiceDoMelhorAtributoRobo);
+    this.displayRobo = 'none';
   }
 
   jogadorVenceRodada(){
@@ -239,6 +243,7 @@ export class MesaComponent implements OnInit{
         this.roboVenceRodada();
       }
     }
+    this.displayRobo = 'none';
   }
 
   varificaPlacar(indicie:any){
@@ -325,7 +330,6 @@ export class MesaComponent implements OnInit{
   }
 
   duelo(indicie:any){
-    console.log(indicie)
     this.displayRobo = 'block';
     this.animation = 'bot-card';
     this.varificaPlacar(indicie);

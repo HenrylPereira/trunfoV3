@@ -8,8 +8,10 @@ import { Router } from '@angular/router';
 })
 export class MenuTemasComponent implements OnInit {
 
+  public loading =  false;
+
   public backgroundImage: string = "url('https://w0.peakpx.com/wallpaper/916/847/HD-wallpaper-homem-aranha-filmes-herois-homem-aranha-marvel-spider-man.jpg')";
-  public bckColor = "#f2f2f2";
+  public bckColor = "#69007351";
   public tema = "herois";
 
   public cards = [
@@ -38,7 +40,12 @@ export class MenuTemasComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loading = true
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+  }
 
   changeTheme(card: any) {
     this.backgroundImage = `url(${card.backgroundImage})`;

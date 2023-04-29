@@ -425,7 +425,7 @@ export const cartasCarros: cardInterface[] = [
      imageUrl: 'https://imgur.com/WKjDpZ3.jpg'
     },
     {
-     titulo: 'Lamborghini Veneno',
+     titulo: 'L. Veneno',
      indice: 'D1',
      atributos: [
        { titulo: 'Velocidade Max', valor: 88 },

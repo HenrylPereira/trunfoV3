@@ -19,10 +19,15 @@ export class CardComponent implements OnChanges {
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.reset === true) {
+    if (this.reset === true && !this.robo) {
       this.atributoSelecionado = null;
+      this.atrRobo = null;
     }
     this.robo === true && this.atrRobo ? this.atributoSelecionado = this.atrRobo : null;
+
+    if(this.robo && this.reset){
+      this.atributoSelecionado = null;
+    }
   }
 
   selecionarAtributo(index: number, atr: string): void {

@@ -1,5 +1,4 @@
 .background {
-  background-image: url('https://imgur.com/TqtKf5j.png%27');
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -226,15 +225,5 @@
   }
 }
 
-@keyframes background-animation {
-  0% {
-    background-color: rgba(255, 189, 6, 0.616);
-  }
-  50% {
-    background-color: rgba(253, 244, 113, 0.589);
-  }
-  100% {
-    background-color: rgba(255, 189, 6, 0.616);
-  }
-}
+
 

@@ -12,6 +12,7 @@ import { cartasFutebol, cartasCarros , cartasHerois} from './../../mock/cartasMo
 
 export class MesaComponent implements OnInit{
   @Output() resetEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() resetRoboEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() atributoSelecionadoRobo: EventEmitter<number> = new EventEmitter<number>();
 
   public displayRobo = 'none';
@@ -34,6 +35,7 @@ export class MesaComponent implements OnInit{
   public atributoMaisForteDaCarta!:number;
   public indicieDoMelhorAtributoRobo!: number;
   public atributoName!: string;
+  public backImage!: string;
 
 
 	constructor(private router:Router, private route: ActivatedRoute) {
@@ -57,12 +59,15 @@ export class MesaComponent implements OnInit{
     switch(tema) {
       case('herois'):
         this.baralhoCompleto = cartasHerois;
+        this.backImage = "url('https://static.vecteezy.com/ti/vetor-gratis/p3/13168075-fundo-de-meio-tom-de-batalha-de-super-herois-com-um-flash-versus-design-de-relampago-ilustracaoial-vetor.jpg')";
         break;
       case('futebol'):
         this.baralhoCompleto = cartasFutebol;
+        this.backImage = "url('https://static.vecteezy.com/system/resources/previews/003/106/558/original/soccer-stadium-night-background-free-vector.jpg')";
         break;
       case('carros'):
         this.baralhoCompleto = cartasCarros;
+        this.backImage = "url('https://static.vecteezy.com/system/resources/previews/004/911/011/original/modern-abstract-high-speed-movement-colourful-dynamic-motion-on-blue-background-movement-sport-pattern-for-banner-or-poster-design-background-concept-free-vector.jpg')";
         break;
     }
   }
@@ -142,6 +147,7 @@ export class MesaComponent implements OnInit{
   }
 
   jogadorVenceRodada(){
+    this.resetRoboEvent.emit(true);
     const botaoDuelo = document.querySelector('.play-btn') as HTMLElement;
 
     if (botaoDuelo) {
@@ -182,6 +188,7 @@ export class MesaComponent implements OnInit{
   }
 
   roboVencedorDaPartida(){
+    this.animation = '';
     var modal = document.querySelector('.modal') as HTMLElement;
     var modalContent = document.querySelector('.modal-content') as HTMLElement;
     var firstContainer = document.querySelector('.first-container ') as HTMLElement;
@@ -199,6 +206,7 @@ export class MesaComponent implements OnInit{
   }
 
   jogadorVencedorDaPartida(){
+    this.animation = '';
     var modal = document.querySelector('.modal') as HTMLElement;
     var modalContent = document.querySelector('.modal-content') as HTMLElement;
     var firstContainer = document.querySelector('.first-container ') as HTMLElement;
@@ -330,36 +338,37 @@ export class MesaComponent implements OnInit{
   }
 
   duelo(indicie:any){
-    this.displayRobo = 'block';
-    this.animation = 'bot-card';
-    this.varificaPlacar(indicie);
-    setTimeout(() => {
-      if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
-        this.tratamentoTrunfo();
-      }
-      else{
-        if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor){
-          this.jogadorVenceRodada();
-          this.jogadorVencedor = 'block';
-        }else{
-          this.roboVenceRodada();
-          this.botVencedor = 'block';
-
+    if(indicie){
+      this.displayRobo = 'block';
+      this.animation = 'bot-card';
+      this.varificaPlacar(indicie);
+      setTimeout(() => {
+        if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
+          this.tratamentoTrunfo();
         }
-      }
+        else{
+          if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor){
+            this.jogadorVenceRodada();
+            this.jogadorVencedor = 'block';
+          }else{
+            this.roboVenceRodada();
+            this.botVencedor = 'block';
+          }
+        }
 
-      if(this.jogadorVencedor != 'none'){
-        this.displayRobo = 'none';
-        this.animation = '';
-        this.jogadorVencedor = 'none';
-        this.botVencedor = 'none';
-      }
+        if(this.jogadorVencedor != 'none'){
+          this.displayRobo = 'none';
+          this.animation = '';
+          this.jogadorVencedor = 'none';
+          this.botVencedor = 'none';
+        }
 
-      this.clearPlacar();
-      this.resetEvent.emit(true);
-      this.atributoName = '';
-    }, 4000);
-    console.log("robo chamou")
+        this.clearPlacar();
+        this.resetEvent.emit(true);
+        this.atributoName = '';
+      }, 4000);
+      console.log("robo chamou")
+    }
   }
 }
 

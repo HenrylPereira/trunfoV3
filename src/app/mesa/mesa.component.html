@@ -1,4 +1,4 @@
-<div class="background">
+<div class="background" [style.background-image]="backImage">
   <div class="top-side">
     <img
       *ngFor="let card of deckDoRobo; let i=index"
@@ -15,6 +15,7 @@
       [style.winnerCard]="jogadorVencedor">
      </app-card>
      <app-card
+      [reset]="resetRoboEvent | async"
       [carta]="cartaRobo"
       [style.display]="displayRobo"
       [ngClass]="animation"

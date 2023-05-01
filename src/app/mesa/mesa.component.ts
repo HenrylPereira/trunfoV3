@@ -138,8 +138,9 @@ export class MesaComponent implements OnInit{
     this.displayRobo = 'none';
     this.animation = '';
     setTimeout(() => {
-      this.displayRobo = 'block';
-      this.animation = 'bot-card';
+      if(this.deckDoJogardor.length !== 0){
+        this.displayRobo = 'block';
+      }
       this.atributoSelecionadoRobo.emit(indiceDoMelhorAtributoRobo);
     },500);
     this.duelo(indiceDoMelhorAtributoRobo);
@@ -183,12 +184,12 @@ export class MesaComponent implements OnInit{
   }
 
   navigateToMenu(){
-    console.log("teste")
     this.router.navigate(['menu']);
   }
 
   roboVencedorDaPartida(){
     this.animation = '';
+    this.displayRobo = 'none';
     var modal = document.querySelector('.modal') as HTMLElement;
     var modalContent = document.querySelector('.modal-content') as HTMLElement;
     var firstContainer = document.querySelector('.first-container ') as HTMLElement;
@@ -207,6 +208,7 @@ export class MesaComponent implements OnInit{
 
   jogadorVencedorDaPartida(){
     this.animation = '';
+    this.displayRobo = 'none';
     var modal = document.querySelector('.modal') as HTMLElement;
     var modalContent = document.querySelector('.modal-content') as HTMLElement;
     var firstContainer = document.querySelector('.first-container ') as HTMLElement;
@@ -338,9 +340,11 @@ export class MesaComponent implements OnInit{
   }
 
   duelo(indicie:any){
-    if(indicie){
-      this.displayRobo = 'block';
-      this.animation = 'bot-card';
+    if(indicie !== undefined){
+      if(this.deckDoJogardor.length !== 0){
+        this.animation = 'bot-card';
+        this.displayRobo = 'block';
+      }
       this.varificaPlacar(indicie);
       setTimeout(() => {
         if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
@@ -367,7 +371,6 @@ export class MesaComponent implements OnInit{
         this.resetEvent.emit(true);
         this.atributoName = '';
       }, 4000);
-      console.log("robo chamou")
     }
   }
 }

@@ -67,7 +67,7 @@ export class MesaComponent implements OnInit{
         break;
       case('carros'):
         this.baralhoCompleto = cartasCarros;
-        this.backImage = "url('https://static.vecteezy.com/system/resources/previews/004/911/011/original/modern-abstract-high-speed-movement-colourful-dynamic-motion-on-blue-background-movement-sport-pattern-for-banner-or-poster-design-background-concept-free-vector.jpg')";
+        this.backImage = "url('https://www.r2pg.com.br/wp-content/uploads/2017/06/piotr-dura-tree-of-the-forgotten2k.jpg')";
         break;
     }
   }
@@ -126,11 +126,10 @@ export class MesaComponent implements OnInit{
     }
 
     this.cartasDaRodada();
-
-    this.verificaQtdCartas();
     this.deckDoRobo.push(this.primeiraCartaJogador);
     this.deckDoRobo.push(this.primeiraCartaRobo);
     this.cartasBatalhando();
+    this.verificaQtdCartas();
 
     const indiceDoMelhorAtributoRobo = this.encontrarIndiceDoMelhorAtributo(this.deckDoRobo[0]);
     this.displayRobo = 'none';

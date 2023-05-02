@@ -93,12 +93,10 @@ export class MesaComponent implements OnInit{
         cartaDistribuida.push(indiceAleatorio);
       }
     }
-    console.log(this.deckDoJogardor)
   }
 
   destribuidorDeCartasRobo(){
 		this.deckDoRobo = this.baralhoCompleto.filter((carta) => !this.deckDoJogardor.includes(carta));
-    console.log(this.deckDoRobo)
    }
 
   cartasBatalhando(){
@@ -203,7 +201,6 @@ export class MesaComponent implements OnInit{
     }
 
     this.vencedor = "Derrota";
-    console.log("robo venceu");
   }
 
   jogadorVencedorDaPartida(){
@@ -222,7 +219,6 @@ export class MesaComponent implements OnInit{
     }
 
     this.vencedor = "Vitória";
-    console.log("jogador venceu");
   }
 
   verificaQtdCartas(){
@@ -238,14 +234,12 @@ export class MesaComponent implements OnInit{
 
   tratamentoTrunfo(){
     if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) == "A")){
-      console.log("TRUNFO PERDEU");
       if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
         this.roboVenceRodada();
       }else{
         this.jogadorVenceRodada();
       }
     }else{
-      console.log("TRUNFO VENCEU A RODADA");
       if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) != "A"){
         this.jogadorVenceRodada();
       }
@@ -262,7 +256,6 @@ export class MesaComponent implements OnInit{
 
       if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
         if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) == "A")){
-          console.log("TRUNFO PERDEU");
           if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
             this.resultadoPlacar = "Perdeu a Rodada";
             if(placar){
@@ -277,7 +270,6 @@ export class MesaComponent implements OnInit{
             }
           }
         }else{
-          console.log("TRUNFO VENCEU A RODADA");
           if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) != "A"){
             this.resultadoPlacar = "Venceu a Rodada";
             if(placar){
@@ -332,8 +324,6 @@ export class MesaComponent implements OnInit{
         indiceDoMelhorAtributo = i;
       }
     }
-    console.log("________")
-    console.log(maiorValor)
 
 
     return indiceDoMelhorAtributo;

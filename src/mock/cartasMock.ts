@@ -1,136 +1,136 @@
 import { cardInterface } from "src/app/card/interfaces/card-interface";
 
 export const cartasHerois: cardInterface[] = [
- {
-    titulo: 'Thor',
-    indice: 'A3',
+  {
+    titulo: 'Visão',
+    indice: 'S10',
     atributos: [
-      { titulo: 'Força', valor: 1 },
-      { titulo: 'Agilidade', valor: 2 },
-      { titulo: 'Inteligência', valor: 3 },
-      { titulo: 'Magia', valor: 4 },
-      { titulo: 'Velocidade', valor: 5 },
+      { titulo: 'Força', valor: 100 },
+      { titulo: 'Agilidade', valor: 100 },
+      { titulo: 'Inteligência', valor: 100 },
+      { titulo: 'Magia', valor: 100 },
+      { titulo: 'coragem', valor: 100 },
     ],
-    cor: '#3f5dc9',
-    imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
+    cor: '#90309F',
+    imageUrl: 'https://imgur.com/OW6rLfc.jpg'
+ },
+ {
+  titulo: 'H. de Ferro',
+  indice: 'A1',
+  atributos: [
+    { titulo: 'Força', valor: 80 },
+    { titulo: 'Agilidade', valor: 76 },
+    { titulo: 'Inteligência', valor: 90 },
+    { titulo: 'Magia', valor: 10 },
+    { titulo: 'coragem', valor: 85 },
+  ],
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/WbQBvCE.jpg'
+ },
+ {
+  titulo: 'Thor',
+  indice: 'A2',
+  atributos: [
+    { titulo: 'Força', valor: 90 },
+    { titulo: 'Agilidade', valor: 83 },
+    { titulo: 'Inteligência', valor: 50 },
+    { titulo: 'Magia', valor: 87 },
+    { titulo: 'coragem', valor: 87 },
+  ],
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/5JNuhCr.jpg'
+ },
+ {
+  titulo: 'Batman',
+  indice: 'B1',
+  atributos: [
+    { titulo: 'Força', valor: 70 },
+    { titulo: 'Agilidade', valor: 65 },
+    { titulo: 'Inteligência', valor: 70 },
+    { titulo: 'Magia', valor: 0 },
+    { titulo: 'coragem', valor: 80 },
+  ],
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/KD5ZHEP.jpg'
+ },
+ {
+  titulo: 'D. Estranho',
+  indice: 'B2',
+  atributos: [
+    { titulo: 'Força', valor: 85 },
+    { titulo: 'Agilidade', valor: 70 },
+    { titulo: 'Inteligência', valor: 95 },
+    { titulo: 'Magia', valor: 90 },
+    { titulo: 'coragem', valor: 79 },
+  ],
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/EYuWVBL.jpg'
+ },
+ {
+  titulo: 'Superman',
+  indice: 'C1',
+  atributos: [
+    { titulo: 'Força', valor: 95 },
+    { titulo: 'Agilidade', valor: 75 },
+    { titulo: 'Inteligência', valor: 75 },
+    { titulo: 'Magia', valor: 60 },
+    { titulo: 'coragem', valor: 90 },
+  ],
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/8m0ebYU.jpg'
  },
  {
   titulo: 'Miranha',
-  indice: 'A3',
+  indice: 'C2',
   atributos: [
-    { titulo: 'Força', valor: 6 },
-    { titulo: 'Agilidade', valor: 7 },
-    { titulo: 'Inteligência', valor: 8 },
-    { titulo: 'Magia', valor: 9 },
-    { titulo: 'Velocidade', valor: 10 },
+    { titulo: 'Força', valor: 87 },
+    { titulo: 'Agilidade', valor: 90 },
+    { titulo: 'Inteligência', valor: 71 },
+    { titulo: 'Magia', valor: 30 },
+    { titulo: 'coragem', valor: 86 },
   ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
- },
- {
-  titulo: 'Hulk',
-  indice: 'A9',
-  atributos: [
-    { titulo: 'Força', valor: 11 },
-    { titulo: 'Agilidade', valor: 12 },
-    { titulo: 'Inteligência', valor: 13 },
-    { titulo: 'Magia', valor: 14 },
-    { titulo: 'Velocidade', valor: 15 },
-  ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
- },
- {
-  titulo: 'Capitão America',
-  indice: 'A10',
-  atributos: [
-    { titulo: 'Força', valor: 16 },
-    { titulo: 'Agilidade', valor: 17 },
-    { titulo: 'Inteligência', valor: 18 },
-    { titulo: 'Magia', valor: 19 },
-    { titulo: 'Velocidade', valor: 20 },
-  ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
- },/*
- {
-  titulo: 'Doutor maluko',
-  indice: 'A20',
-  atributos: [
-    { titulo: 'Força', valor: 21 },
-    { titulo: 'Agilidade', valor: 22 },
-    { titulo: 'Inteligência', valor: 23 },
-    { titulo: 'Magia', valor: 24 },
-    { titulo: 'Velocidade', valor: 25 },
-  ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
- },
- {
-  titulo: 'Viuva negra',
-  indice: 'm8',
-  atributos: [
-    { titulo: 'Força', valor: 26 },
-    { titulo: 'Agilidade', valor: 27 },
-    { titulo: 'Inteligência', valor: 28 },
-    { titulo: 'Magia', valor: 29 },
-    { titulo: 'Velocidade', valor: 30 },
-  ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
- },
- {
-  titulo: 'Pantera negra',
-  indice: 'm0',
-  atributos: [
-    { titulo: 'Força', valor: 31 },
-    { titulo: 'Agilidade', valor: 32 },
-    { titulo: 'Inteligência', valor: 33 },
-    { titulo: 'Magia', valor: 34 },
-    { titulo: 'Velocidade', valor: 35 },
-  ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/ybQ6S4A.jpg'
  },
  {
   titulo: 'Flash',
-  indice: 'A23',
+  indice: 'D1',
   atributos: [
-    { titulo: 'Força', valor: 36 },
-    { titulo: 'Agilidade', valor: 37 },
-    { titulo: 'Inteligência', valor: 38 },
-    { titulo: 'Magia', valor: 39 },
-    { titulo: 'Velocidade', valor: 40 },
+    { titulo: 'Força', valor: 60 },
+    { titulo: 'Agilidade', valor: 95 },
+    { titulo: 'Inteligência', valor: 74 },
+    { titulo: 'Magia', valor: 50 },
+    { titulo: 'coragem', valor: 72 },
   ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/rpsAMCM.jpg'
  },
  {
-  titulo: 'Homen formiga',
-  indice: 'A32',
+  titulo: 'P. Negra',
+  indice: 'D2',
   atributos: [
-    { titulo: 'Força', valor: 41 },
-    { titulo: 'Agilidade', valor: 42 },
-    { titulo: 'Inteligência', valor: 43 },
-    { titulo: 'Magia', valor: 44 },
-    { titulo: 'Velocidade', valor: 45 },
+    { titulo: 'Força', valor: 75 },
+    { titulo: 'Agilidade', valor: 87 },
+    { titulo: 'Inteligência', valor: 80 },
+    { titulo: 'Magia', valor: 20 },
+    { titulo: 'coragem', valor: 84 },
   ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/ySo0XnH.jpg'
  },
  {
-  titulo: 'Super Man',
-  indice: 'A09',
+  titulo: 'C. America',
+  indice: 'E1',
   atributos: [
-    { titulo: 'Força', valor: 46 },
-    { titulo: 'Agilidade', valor: 47 },
-    { titulo: 'Inteligência', valor: 48 },
-    { titulo: 'Magia', valor: 49 },
-    { titulo: 'Velocidade', valor: 50 },
+    { titulo: 'Força', valor: 83 },
+    { titulo: 'Agilidade', valor: 85 },
+    { titulo: 'Inteligência', valor: 90 },
+    { titulo: 'Magia', valor: 40 },
+    { titulo: 'coragem', valor: 95 },
   ],
-  cor: '#3f5dc9',
-  imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
- }*/
+  cor: '#3F5DC9',
+  imageUrl: 'https://imgur.com/EIwRNo6.jpg'
+ },
 ]
 
 export const cartasFutebol: cardInterface[] = [
@@ -138,211 +138,132 @@ export const cartasFutebol: cardInterface[] = [
     titulo: 'Neymar',
     indice: 'S10',
     atributos: [
-      { titulo: 'Drible', valor: 1 },
-      { titulo: 'Defesa', valor: 2 },
-      { titulo: 'Finalização', valor: 3 },
-      { titulo: 'Passe', valor: 4 },
-      { titulo: 'Velocidade', valor: 5 },
+      { titulo: 'Drible', valor: 100 },
+      { titulo: 'Defesa', valor: 100 },
+      { titulo: 'Finalização', valor: 100 },
+      { titulo: 'Passe', valor: 100 },
+      { titulo: 'Velocidade', valor: 100 },
     ],
     cor: '#D3C32B',
     imageUrl: 'https://imgur.com/oZZ6KMi.png'
  },
  {
   titulo: 'Messi',
-  indice: 'A3',
+  indice: 'A1',
   atributos: [
-    { titulo: 'Drible', valor: 6 },
-    { titulo: 'Defesa', valor: 7 },
-    { titulo: 'Finalização', valor: 8 },
-    { titulo: 'Passe', valor: 9 },
-    { titulo: 'Velocidade', valor: 10 },
+    { titulo: 'Drible', valor: 90 },
+    { titulo: 'Defesa', valor: 30 },
+    { titulo: 'Finalização', valor: 95 },
+    { titulo: 'Passe', valor: 75 },
+    { titulo: 'Velocidade', valor: 78 },
   ],
   cor: '#6200C3',
   imageUrl: 'https://imgur.com/dK6Z3oW.png'
  },
  {
   titulo: 'Cristiano',
-  indice: 'H39',
+  indice: 'B1',
   atributos: [
-    { titulo: 'Drible', valor: 11 },
-    { titulo: 'Defesa', valor: 12 },
-    { titulo: 'Finalização', valor: 13 },
-    { titulo: 'Passe', valor: 14 },
-    { titulo: 'Velocidade', valor: 15 },
+    { titulo: 'Drible', valor: 85 },
+    { titulo: 'Defesa', valor: 40 },
+    { titulo: 'Finalização', valor: 80 },
+    { titulo: 'Passe', valor: 80 },
+    { titulo: 'Velocidade', valor: 86 },
   ],
   cor: '#6200C3',
   imageUrl: 'https://imgur.com/YxdD0S4.png'
  },
  {
   titulo: 'Luis Suárez',
-  indice: 'H23',
+  indice: 'B2',
   atributos: [
-    { titulo: 'Drible', valor: 16 },
-    { titulo: 'Defesa', valor: 17 },
-    { titulo: 'Finalização', valor: 18 },
-    { titulo: 'Passe', valor: 19 },
-    { titulo: 'Velocidade', valor: 20 },
+    { titulo: 'Drible', valor: 80 },
+    { titulo: 'Defesa', valor: 55 },
+    { titulo: 'Finalização', valor: 65 },
+    { titulo: 'Passe', valor: 85 },
+    { titulo: 'Velocidade', valor: 70 },
   ],
   cor: '#6200C3',
   imageUrl: 'https://imgur.com/tSoRmw1.png'
- },/*
+ },
  {
   titulo: 'Mbappe',
-  indice: 'A20',
+  indice: 'C1',
   atributos: [
-    { titulo: 'Drible', valor: 21 },
-    { titulo: 'Defesa', valor: 22 },
-    { titulo: 'Finalização', valor: 23 },
-    { titulo: 'Passe', valor: 24 },
-    { titulo: 'Velocidade', valor: 25 },
+    { titulo: 'Drible', valor: 95 },
+    { titulo: 'Defesa', valor: 46 },
+    { titulo: 'Finalização', valor: 85 },
+    { titulo: 'Passe', valor: 60 },
+    { titulo: 'Velocidade', valor: 95 },
   ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/Fcnw6ZK'
+  cor: '#6200C3',
+  imageUrl: 'https://imgur.com/Fcnw6ZK.jpg'
  },
  {
   titulo: 'Modric',
-  indice: 'm8',
+  indice: 'C2',
   atributos: [
-    { titulo: 'Drible', valor: 26 },
-    { titulo: 'Defesa', valor: 27 },
-    { titulo: 'Finalização', valor: 28 },
-    { titulo: 'Passe', valor: 29 },
-    { titulo: 'Velocidade', valor: 30 },
+    { titulo: 'Drible', valor: 87 },
+    { titulo: 'Defesa', valor: 75 },
+    { titulo: 'Finalização', valor: 86 },
+    { titulo: 'Passe', valor: 95 },
+    { titulo: 'Velocidade', valor:75 },
   ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/BHuektr'
+  cor: '#6200C3',
+  imageUrl: 'https://imgur.com/BHuektr.jpg'
  },
  {
   titulo: 'Haaland',
-  indice: 'm0',
+  indice: 'D1',
   atributos: [
-    { titulo: 'Drible', valor: 31 },
-    { titulo: 'Defesa', valor: 32 },
-    { titulo: 'Finalização', valor: 33 },
-    { titulo: 'Passe', valor: 34 },
-    { titulo: 'Velocidade', valor: 35 },
+    { titulo: 'Drible', valor: 89 },
+    { titulo: 'Defesa', valor: 80 },
+    { titulo: 'Finalização', valor: 83 },
+    { titulo: 'Passe', valor: 81 },
+    { titulo: 'Velocidade', valor: 93 },
   ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/14HVEM9'
+  cor: '#6200C3',
+  imageUrl: 'https://imgur.com/14HVEM9.jpg'
  },
-
  {
-  titulo: 'Kevin de Bruyne',
-  indice: 'A23',
+  titulo: 'K. de Bruyne',
+  indice: 'D2',
   atributos: [
-    { titulo: 'Drible', valor: 36 },
-    { titulo: 'Defesa', valor: 37 },
-    { titulo: 'Finalização', valor: 38 },
-    { titulo: 'Passe', valor: 39 },
-    { titulo: 'Velocidade', valor: 40 },
+    { titulo: 'Drible', valor: 84 },
+    { titulo: 'Defesa', valor: 60 },
+    { titulo: 'Finalização', valor: 87 },
+    { titulo: 'Passe', valor: 84 },
+    { titulo: 'Velocidade', valor: 81 },
   ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/gDMnvr3'
+  cor: '#6200C3',
+  imageUrl: 'https://imgur.com/gDMnvr3.jpg'
  },
  {
   titulo: 'Hakimi',
-  indice: 'A32',
+  indice: 'E1',
   atributos: [
-    { titulo: 'Drible', valor: 41 },
-    { titulo: 'Defesa', valor: 42 },
-    { titulo: 'Finalização', valor: 43 },
-    { titulo: 'Passe', valor: 44 },
-    { titulo: 'Velocidade', valor: 45 },
+    { titulo: 'Drible', valor: 82 },
+    { titulo: 'Defesa', valor: 70 },
+    { titulo: 'Finalização', valor: 69 },
+    { titulo: 'Passe', valor: 87 },
+    { titulo: 'Velocidade', valor: 80 },
   ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/B5AvPmi'
+  cor: '#6200C3',
+  imageUrl: 'https://imgur.com/B5AvPmi.jpg'
  },
  {
   titulo: 'Vini Jr.',
-  indice: 'A09',
+  indice: 'A2',
   atributos: [
-    { titulo: 'Drible', valor: 46 },
-    { titulo: 'Defesa', valor: 47 },
-    { titulo: 'Finalização', valor: 48 },
-    { titulo: 'Passe', valor: 49 },
-    { titulo: 'Velocidade', valor: 50 },
+    { titulo: 'Drible', valor: 91 },
+    { titulo: 'Defesa', valor: 50 },
+    { titulo: 'Finalização', valor: 84 },
+    { titulo: 'Passe', valor: 65 },
+    { titulo: 'Velocidade', valor: 98 },
   ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/fdTiFxI'
- },
- {
-  titulo: 'Benzema',
-  indice: 'AF0',
-  atributos: [
-    { titulo: 'Drible', valor: 51 },
-    { titulo: 'Defesa', valor: 52 },
-    { titulo: 'Finalização', valor: 53 },
-    { titulo: 'Passe', valor: 54 },
-    { titulo: 'Velocidade', valor: 55 },
-  ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/qet8dDY'
- },
- {
-  titulo: 'Lewandowki',
-  indice: 'm0',
-  atributos: [
-    { titulo: 'Drible', valor: 56 },
-    { titulo: 'Defesa', valor: 57 },
-    { titulo: 'Finalização', valor: 58 },
-    { titulo: 'Passe', valor: 59 },
-    { titulo: 'Velocidade', valor: 60 },
-  ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/wfM9rNT'
- },
- {
-  titulo: 'Salah',
-  indice: 'm0',
-  atributos: [
-    { titulo: 'Drible', valor: 61 },
-    { titulo: 'Defesa', valor: 62 },
-    { titulo: 'Finalização', valor: 63 },
-    { titulo: 'Passe', valor: 64 },
-    { titulo: 'Velocidade', valor: 65 },
-  ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/1U97fS8'
- },
- {
-  titulo: 'Mané',
-  indice: 'm0',
-  atributos: [
-    { titulo: 'Drible', valor: 66 },
-    { titulo: 'Defesa', valor: 67 },
-    { titulo: 'Finalização', valor: 68 },
-    { titulo: 'Passe', valor: 69 },
-    { titulo: 'Velocidade', valor: 70 },
-  ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/U2uEtS6'
- },
- {
-  titulo: 'Gavi',
-  indice: 'm0',
-  atributos: [
-    { titulo: 'Drible', valor: 71 },
-    { titulo: 'Defesa', valor: 72 },
-    { titulo: 'Finalização', valor: 73 },
-    { titulo: 'Passe', valor: 74 },
-    { titulo: 'Velocidade', valor: 75 },
-  ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/1eJ6uwe'
- },
- {
-  titulo: 'Pedri',
-  indice: 'm0',
-  atributos: [
-    { titulo: 'Drible', valor: 76 },
-    { titulo: 'Defesa', valor: 77 },
-    { titulo: 'Finalização', valor: 78 },
-    { titulo: 'Passe', valor: 79 },
-    { titulo: 'Velocidade', valor: 80 },
-  ],
-  cor: '#fff',
-  imageUrl: 'https://imgur.com/sFyYc1P'
- },*/
+  cor: '#6200C3',
+  imageUrl: 'https://imgur.com/fdTiFxI.jpg'
+ }
 ]
 
 export const cartasCarros: cardInterface[] = [
@@ -449,10 +370,9 @@ export const cartasCarros: cardInterface[] = [
      ],
      cor: '#FF0909',
      imageUrl: 'https://imgur.com/Ub4XjLG.jpg'
-    },/*
-
+    },
     {
-     titulo: 'Nissan Sky-Line R-34',
+     titulo: 'Sky-Line R-34',
      indice: 'A2',
      atributos: [
        { titulo: 'Velocidade Max', valor: 83 },
@@ -461,7 +381,7 @@ export const cartasCarros: cardInterface[] = [
        { titulo: '0 a 100', valor: 80 },
        { titulo: 'Aéreo Dinâmica', valor: 93 },
      ],
-     cor: '#fff',
+     cor: '#FF0909',
      imageUrl: 'https://imgur.com/Cc6F77N.jpg'
     },
     {
@@ -474,7 +394,7 @@ export const cartasCarros: cardInterface[] = [
        { titulo: '0 a 100', valor: 85 },
        { titulo: 'Aéreo Dinâmica', valor: 95 },
      ],
-     cor: '#fff',
+     cor: '#FF0909',
      imageUrl: 'https://imgur.com/pLddIiL.jpg'
-    },*/
+    },
 ]

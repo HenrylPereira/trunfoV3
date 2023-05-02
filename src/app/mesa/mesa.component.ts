@@ -80,7 +80,7 @@ export class MesaComponent implements OnInit{
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 3; i ++){ //era 7 tem que ser a metade
+    for(let i = 0; i <= 4; i ++){ //era 7 tem que ser a metade
       const indiceAleatorio = Math.floor(Math.random() * this.baralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
@@ -121,6 +121,7 @@ export class MesaComponent implements OnInit{
   roboVenceRodada(){
     const botaoDuelo = document.querySelector('.play-btn') as HTMLElement;
 
+
     if (botaoDuelo) {
       botaoDuelo.style.display = 'none';
     }
@@ -145,7 +146,8 @@ export class MesaComponent implements OnInit{
   }
 
   jogadorVenceRodada(){
-    this.resetRoboEvent.emit(true);
+    this.atributoSelecionadoRobo.emit(undefined);   //Bug resolvido
+
     const botaoDuelo = document.querySelector('.play-btn') as HTMLElement;
 
     if (botaoDuelo) {

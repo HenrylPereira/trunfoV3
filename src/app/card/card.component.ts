@@ -27,6 +27,7 @@ export class CardComponent implements OnChanges {
       this.atributoSelecionado = this.atrRobo
     }else{
       this.atributoSelecionado = null;
+
     }
     this.reset = false;
   }

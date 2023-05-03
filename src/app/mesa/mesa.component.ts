@@ -2,8 +2,8 @@ import { COMPILER_OPTIONS, Component, EventEmitter, OnInit, Output } from '@angu
 import { Router } from '@angular/router';
 import { cardInterface } from '../card/interfaces/card-interface';
 import { ActivatedRoute } from '@angular/router';
-import { cartasFutebol, cartasCarros , cartasHerois} from './../../mock/cartasMock';
-
+import { cardApi } from '../api/service/card-service';
+import { card } from '../api/model/card-api-interface';
 @Component({
   selector: 'app-mesa',
   templateUrl: './mesa.component.html',
@@ -19,9 +19,9 @@ export class MesaComponent implements OnInit{
   public animation = '';
   public loading = false;
   public atributoSelecionado!: number;
-  public baralhoCompleto!: cardInterface[];
-  public deckDoJogardor: cardInterface[] = [];
-  public deckDoRobo: cardInterface[] = [];
+  public baralhoCompleto!: card[];
+  public deckDoJogardor: card[] = [];
+  public deckDoRobo: card[] = [];
   public cartaJogador: any;
   public cartaRobo: any;
   public tema: any;
@@ -38,7 +38,7 @@ export class MesaComponent implements OnInit{
   public backImage!: string;
 
 
-	constructor(private router:Router, private route: ActivatedRoute) {
+	constructor(private router:Router, private route: ActivatedRoute, private _cardApi:cardApi) {
   }
 
   ngOnInit(): void {
@@ -56,20 +56,25 @@ export class MesaComponent implements OnInit{
   }
 
   private selecionarTema(tema: string | null){
+    let idTema = 0;
     switch(tema) {
       case('herois'):
-        this.baralhoCompleto = cartasHerois;
-        this.backImage = "url('https://static.vecteezy.com/ti/vetor-gratis/p3/13168075-fundo-de-meio-tom-de-batalha-de-super-herois-com-um-flash-versus-design-de-relampago-ilustracaoial-vetor.jpg')";
+        idTema = 1;
         break;
       case('futebol'):
-        this.baralhoCompleto = cartasFutebol;
-        this.backImage = "url('https://static.vecteezy.com/system/resources/previews/003/106/558/original/soccer-stadium-night-background-free-vector.jpg')";
+        idTema = 2;
         break;
       case('carros'):
-        this.baralhoCompleto = cartasCarros;
-        this.backImage = "url('https://www.r2pg.com.br/wp-content/uploads/2017/06/piotr-dura-tree-of-the-forgotten2k.jpg')";
+        idTema = 3;
         break;
     }
+    this.backImage = "url('https://static.vecteezy.com/ti/vetor-gratis/p3/13168075-fundo-de-meio-tom-de-batalha-de-super-herois-com-um-flash-versus-design-de-relampago-ilustracaoial-vetor.jpg')";
+    this._cardApi.getCardsByThemeId(idTema)
+                 .subscribe(
+                            (response) => { this.baralhoCompleto = response; console.log(response)},
+                            (error) => { console.log(error) }
+                           );
+
   }
 
   onAtributoSelecionadoRecebido(atributoSelecionado: any) {

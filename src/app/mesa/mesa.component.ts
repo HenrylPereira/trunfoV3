@@ -3,6 +3,8 @@ import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
 import { cartasHerois } from 'src/mock/cartasMock';
 import { cardInterface } from '../card/interfaces/card-interface';
 import { ActivatedRoute } from '@angular/router';
+import { cardApi } from '../api/service/card-service';
+import { card } from '../api/model/card-api-interface';
 @Component({
   selector: 'app-mesa',
   templateUrl: './mesa.component.html',
@@ -11,16 +13,16 @@ import { ActivatedRoute } from '@angular/router';
 
 export class MesaComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private _cardApi:cardApi) {}
 
   public displayRobo = 'none';
   public animation = '';
   public teste = [1,2]
   public loading = true;
   public atributoSelecionado!: number;
-  public baralhoCompleto!: cardInterface[];
-  public deckDoJogardor: cardInterface[] = [];
-  public deckDoRobo: cardInterface[] = [];
+  public baralhoCompleto!: card[];
+  public deckDoJogardor: card[] = [];
+  public deckDoRobo: card[] = [];
   public cartaJogador: any;
   public cartaRobo: any;
   public tema: any;
@@ -41,17 +43,25 @@ export class MesaComponent implements OnInit {
   }
 
   private selecionarTema(tema: string | null){
+    let idTema = 0;
     switch(tema) {
       case('herois'):
-        this.baralhoCompleto = cartasHerois;
+        idTema = 1;
         break;
       case('futebol'):
-        this.baralhoCompleto = cartasFutebol;
+        idTema = 2;
         break;
       case('carros'):
-        this.baralhoCompleto = cartasCarros;
+        idTema = 3;
         break;
     }
+
+    this._cardApi.getCardsByThemeId(idTema)
+                 .subscribe(
+                            (response) => { this.baralhoCompleto = response; console.log(response)},
+                            (error) => { console.log(error) }
+                           );
+
   }
 
   onAtributoSelecionadoRecebido(atributoSelecionado: number) {

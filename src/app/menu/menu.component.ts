@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   public loading = true;
 
-  constructor(private router:Router, private _cardApi:cardApi) {
+  constructor(private router:Router) {
 
    }
 
@@ -20,11 +20,7 @@ export class MenuComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
     }, 3000);
-    this._cardApi.getAllCards()
-                 .subscribe(
-                  (response) => { console.log(response)},
-                  (error) => { console.log(error) }
-                 );
+
   }
 
   navigateToMesa(){

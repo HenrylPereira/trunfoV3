@@ -17,10 +17,11 @@ export class cardApi extends requestBase {
     url = environment.urlBase + '/api' + '/theme';
 
     getAllCards(){
+        
         return this.getAll<card>(this.url);
     }
 
-    getCardById(id: number){
-        return this.getById<card>(this.url, id);
+    getCardsByThemeId(id: number){
+        return this.getById<card[]>(this.url + '/cards', id);
     }
 }
